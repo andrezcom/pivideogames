@@ -1,0 +1,25 @@
+/* Card.module.css */
+
+/* Container styles */
+.contenedor {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  display: inline-block;
+  width: 200px; /* Ancho fijo del contenedor */
+  height: 300px; /* Altura fija del contenedor */
+  text-align: center;
+  overflow: hidden; /* Para recortar el contenido que pueda desbordar */
+}
+
+/* Individual element styles */
+.contenedor p {
+  margin: 5px 0;
+}
+
+.contenedor img {
+  max-width: 100%; /* Hace que la imagen se ajuste al ancho del contenedor */
+  max-height: 100%; /* Hace que la imagen se ajuste a la altura del contenedor */
+  width: auto; /* Evita que la imagen se estire */
+  height: auto; /* Evita que la imagen se estire */
+}
