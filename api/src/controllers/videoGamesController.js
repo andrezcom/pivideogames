@@ -5,22 +5,15 @@ const API_KEY = '340023d79eaf4537a530456e098c90bc';
 const RAWG_API_URL = 'https://api.rawg.io/api/games';
 
 
-async function videoGamesOfBD() {
-    try {
-        const videoGamesBD = await Videogame.findAll()
-        return videoGamesBD;
-    } catch (error) {
-        console.log('Error', error);
-        return res.status(500).json({message: 'Internal server error'});
-    }
-}
+
 
 
 async function loadGames() {
     const pageSize = 40;
     let games = [];
-    try {
+    const videoGames = [];
 
+    try {
 
         for (let page = 1; games.length < 100; page++) {
             const response = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=${pageSize}&page=${page}`);
@@ -29,9 +22,26 @@ async function loadGames() {
                 ... response.data.results
             ];
         }
-        const response = await axios.get(`${RAWG_API_URL}?key=${API_KEY}`);
-        const videoGames = [];
+        const videoGamesBD = await Videogame.findAll({
+            include: [
+              {
+                model: Genre,
+                attributes: ['nombre']
+              }
+            ],
+          });
+          
+         // console.log(videoGamesBD);
+          
 
+
+
+        console.log(videoGamesBD[0].id);
+        console.log(videoGamesBD[0].nombre);
+        
+
+
+        
         for (const gameInfo of games) {
             const platforms = [];
             const genres = [];
@@ -52,6 +62,45 @@ async function loadGames() {
                 genres: genres
             })
         }
+
+        for (const gameInfo of videoGamesBD) {
+            const genres = [];
+
+            for (let i = 0; i < gameInfo.genres.length; i++) {
+                genres.push(gameInfo.genres[i].nombre);
+            }
+            videoGames.push({
+                id: gameInfo.id,
+                nombre: gameInfo.nombre,
+                descripcion: '',
+                imagen: gameInfo.imagen,
+                lanzamiento: gameInfo.released,
+                rating: gameInfo.rating,
+                genres: genres
+            })
+        }
+
+        
+        // for (const gameInfo of videoGamesBD) {
+        //     const platforms = [];
+        //     const genres = [];
+        //     for (let i = 0; i < gameInfo.platforms.length; i++) {
+        //         platforms.push(gameInfo.platforms[i].platform.name);
+        //     }
+        //     for (let i = 0; i < gameInfo.genres.length; i++) {
+        //         genres.push(gameInfo.genres[i].name);
+        //     }
+        //     videoGames.push({
+        //         id: gameInfo.id,
+        //         nombre: gameInfo.name,
+        //         descripcion: '',
+        //         plataformas: platforms,
+        //         imagen: gameInfo.background_image,
+        //         lanzamiento: gameInfo.released,
+        //         rating: gameInfo.rating,
+        //         genres: genres
+        //     })
+        // }
 
         return videoGames;
     } catch (error) {
