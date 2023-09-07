@@ -28,7 +28,7 @@ server.use('/', routes);
 
 
 loadGames()
-myTimeout = setTimeout(()=>videoGamesToBD(), 1000);
+myTimeout = setTimeout(()=>videoGamesToBD(), 4000);
 //videoGamesToBD()
 
 // Error catching endware.
