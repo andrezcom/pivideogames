@@ -6,7 +6,7 @@ const RAWG_API_URL = 'https://api.rawg.io/api/genres';
 const pageSize = 40;
 
 
-async function loadGames() {
+async function loadGenres() {
     try {
         const response = await axios.get(`${RAWG_API_URL}?key=${API_KEY}&page_size=${pageSize}`);
         const gamesInfo = response.data.results;
@@ -35,5 +35,5 @@ async function loadGames() {
 }
 
 module.exports = {
-    loadGames
+    loadGenres
 };

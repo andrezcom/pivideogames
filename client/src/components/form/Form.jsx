@@ -23,6 +23,33 @@ const [errors, setErrors] = React.useState({
 	genres: []
 });
 
+// const handlerAsociar = (e) => {
+//     setState({
+//         ...state,
+//         countiesID: [
+//             ...state.countiesID,
+//             e.target.value
+//         ]
+//     });
+//     setErrors(validar({
+//         ...state,
+//         countiesID: [
+//             ...state.countiesID,
+//             e.target.value
+//         ]
+//     }));
+// };
+// const handleChange = (e) => {
+//     setState({
+//         ...state,
+//         [e.target.name]: e.target.value
+//     });
+
+//     setErrors(validar({
+//         ...state,
+//         [e.target.name]: e.target.value
+//     }));
+// };
 const validar = (data) => {
     let errors = {};
 
@@ -75,33 +102,6 @@ const Formulario = () => { // const dispatch = useDispatch();
         "12",
     ];
 
-    const handlerAsociar = (e) => {
-        setState({
-            ...state,
-            countiesID: [
-                ...state.countiesID,
-                e.target.value
-            ]
-        });
-        setErrors(validar({
-            ...state,
-            countiesID: [
-                ...state.countiesID,
-                e.target.value
-            ]
-        }));
-    };
-    const handleChange = (e) => {
-        setState({
-            ...state,
-            [e.target.name]: e.target.value
-        });
-
-        setErrors(validar({
-            ...state,
-            [e.target.name]: e.target.value
-        }));
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
