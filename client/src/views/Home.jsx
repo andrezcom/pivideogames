@@ -5,6 +5,7 @@ import {getAll} from '../redux/actions'
 import CardList from '../components/cardList/CardList'
 import Ordered from "../Filters/Ordered/Ordered"
 import FilterGenres from "../Filters/Genre/Genre"
+import Formulario from "../views/Form/Form"
 
 export default function Home() {
     const dispatch = useDispatch()
@@ -19,6 +20,8 @@ export default function Home() {
     }, [dispatch]);
     return (
         <div>
+            <Formulario/>
+            <p>-----</p>
             <Ordered/>
             <FilterGenres/>
             <CardList videoGames={allvideoGames}/>
