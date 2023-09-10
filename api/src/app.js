@@ -26,10 +26,12 @@ server.use((req, res, next) => {
 
 server.use('/', routes);
 
+async function inicio(){
+  await loadGenres();
+  videoGamesToBD();
+}
 
-loadGenres()
-myTimeout = setTimeout(()=>videoGamesToBD(), 4000);
-//videoGamesToBD()
+inicio();
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars

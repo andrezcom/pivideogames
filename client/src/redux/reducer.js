@@ -23,20 +23,21 @@ const rootReducer = (state = initialState, action) => {
                 };
             }
 
-            // case "FILER_GENRE":
-            //     if (action.payload === "All") {
-            //       return {
-            //         ...state,
-            //         videoGames: [...state.allvideoGames],
-            //       };
-            //     } else {
-            //       return {
-            //         ...state,
-            //         videoGames: state.allvideoGames.filter(
-            //           (genre) => country.continente === action.payload
-            //         ),
-            //       };
-            //     }
+            case "FILTER_GENRE":
+                if (action.payload === "All") {
+                  return {
+                    ...state,
+                    allvideoGames: [...state.videoGames],
+                  };
+                } else {
+                  return {
+                    ...state,
+                    allvideoGames: state.videoGames.filter((videoGame) =>
+                      videoGame.genres.includes(action.payload)
+                    ),
+                  };
+                }
+              
 
             // case "CREATE_VIDEO_GAME":
             // No realizas cambios en el estado directamente en el reducer.

@@ -14,7 +14,6 @@ const Ordered = () => {
 
   return (
     <div className="container">
-      {console.log(boolean)}
       <button onClick={handleButton}>{boolean ? "Z -> A" : "A -> Z"}</button>
     </div>
   );
