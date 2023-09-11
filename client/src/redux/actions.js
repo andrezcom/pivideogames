@@ -6,6 +6,8 @@ export const ORDERED_RATING = "ORDERED_RATING";
 export const FILTER_GENRE = "FILTER_GENRE";
 export const FILTER_RATING = "FILTER_RATING";
 export const CREATE_VIDEO_GAME = "CREATE_VIDEO_GAME";
+export const SEARCH_VIDEO = "SEARCH_VIDEO";
+
 
 export const getAll = (videoGames) => {
     return {type: GET_ALL, payload: videoGames};
@@ -31,6 +33,11 @@ export const filterRating = (rating) => {
   console.log(typeof(rating));
     return {type: FILTER_RATING, payload: rating};
 };
+
+export const searchVideo = (nombre) => {
+  return {type: SEARCH_VIDEO, payload: nombre.toUpperCase()};
+};
+
 
 export const createVideoGame = (videoGame) => {
     return(dispatch) => {

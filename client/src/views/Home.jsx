@@ -7,6 +7,8 @@ import Ordered from "../Filters/Ordered/Ordered"
 import OrderedRating from "../Filters/OrderedRating/OrderedRating"
 import FilterGenres from "../Filters/Genre/Genre"
 import FilterRating from "../Filters/FilterRating/FilterRating"
+import SearchBar from "../components/searchBar/SearchBar"
+
 import Formulario from "../views/Form/Form"
 
 export default function Home() {
@@ -29,6 +31,8 @@ export default function Home() {
             <FilterRating/>
             <p>-----</p>
             <FilterGenres/>
+            <p>-----</p>
+            <SearchBar/>
             <p>-----</p>
             {/* <Formulario/> */}
             <CardList videoGames={allvideoGames}/>
