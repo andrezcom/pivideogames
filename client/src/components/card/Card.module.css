@@ -7,7 +7,7 @@
   margin: 10px;
   display: inline-block;
   width: 200px; /* Ancho fijo del contenedor */
-  height: 300px; /* Altura fija del contenedor */
+  height: 350px; /* Altura fija del contenedor */
   text-align: center;
   overflow: hidden; /* Para recortar el contenido que pueda desbordar */
 }
@@ -18,8 +18,8 @@
 }
 
 .contenedor img {
-  max-width: 100%; /* Hace que la imagen se ajuste al ancho del contenedor */
-  max-height: 100%; /* Hace que la imagen se ajuste a la altura del contenedor */
+  
+  height: 100px; /* Hace que la imagen se ajuste a la altura del contenedor */
   width: auto; /* Evita que la imagen se estire */
-  height: auto; /* Evita que la imagen se estire */
+  object-fit: cover;
 }

@@ -1,23 +1,26 @@
-
 import axios from "axios"
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { filterGenre } from "../../redux/actions";
-
-
+import {useState, useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {filterGenre} from "../../redux/actions";
 
 
 const FilterGenres = () => {
-  const [genres, setGenres] = useState([{id:0, nombre:'All'}]);
-  const dispatch = useDispatch();
+    const [genres, setGenres] = useState([{
+            id: 0,
+            nombre: 'All'
+        }]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-      axios.get('http://localhost:3001/genres').then((response1) => {
-        setGenres([...genres,...response1.data]);
+        axios.get('http://localhost:3001/genres').then((response1) => {
+            setGenres([
+                ...genres,
+                ...response1.data
+            ]);
 
-      }).catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+        }).catch((error) => {
+            console.error("Error fetching data:", error);
+        });
 
     }, []);
 
@@ -35,8 +38,12 @@ const FilterGenres = () => {
                 {
                 genres.map((genre, index) => (
                     <option key={index}
-                        value={genre.nombre}>
-                        {genre.nombre} </option>
+                        value={
+                            genre.nombre
+                    }>
+                        {
+                        genre.nombre
+                    } </option>
                 ))
             } </select>
         </div>

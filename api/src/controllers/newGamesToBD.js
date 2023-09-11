@@ -8,7 +8,7 @@ const videoGames = [
         plataformas: 'Platform 1',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 1',
-        rating: 'Rating 1',
+        rating: 1,
         genres: ["Action", "Adventure"]
     },
     {
@@ -17,7 +17,7 @@ const videoGames = [
         plataformas: 'Platform 2',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 2',
-        rating: 'Rating 2',
+        rating: 1.5,
         genres: ["Adventure", "RPG"]
     },
     {
@@ -26,7 +26,7 @@ const videoGames = [
         plataformas: 'Platform 3',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 3',
-        rating: 'Rating 3',
+        rating: 2,
         genres: ["RPG", "Shooter"]
     },
     {
@@ -35,7 +35,7 @@ const videoGames = [
         plataformas: 'Platform 4',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 4',
-        rating: 'Rating 4',
+        rating: 2.5,
         genres: ["Shooter", "Puzzle"]
     }, {
         nombre: 'Game 5',
@@ -43,7 +43,7 @@ const videoGames = [
         plataformas: 'Platform 5',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 5',
-        rating: 'Rating 5',
+        rating: 5,
         genres: ["Puzzle", "Massively Multiplayer"]
     }, {
         nombre: 'Game 6',
@@ -51,7 +51,7 @@ const videoGames = [
         plataformas: 'Platform 6',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 6',
-        rating: 'Rating 6',
+        rating: 3,
         genres: ["Massively Multiplayer", "Indie"]
     }, {
         nombre: 'Game 7',
@@ -59,7 +59,7 @@ const videoGames = [
         plataformas: 'Platform 7',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 7',
-        rating: 'Rating 7',
+        rating: 3.5,
         genres: ["Indie", "Platformer"]
     }, {
         nombre: 'Game 8',
@@ -67,7 +67,7 @@ const videoGames = [
         plataformas: 'Platform 8',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 8',
-        rating: 'Rating 8',
+        rating: 4,
         genres: ["Platformer", "Action"]
     }, {
         nombre: 'Game 9',
@@ -75,7 +75,7 @@ const videoGames = [
         plataformas: 'Platform 9',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 9',
-        rating: 'Rating 9',
+        rating: 4.5,
         genres: ["Action", "Puzzle"]
     }, {
         nombre: 'Game 10',
@@ -83,7 +83,7 @@ const videoGames = [
         plataformas: 'Platform 10',
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 10',
-        rating: 'Rating 10',
+        rating: 5,
         genres: ["Shooter", "Indie"]
     },
 ]
@@ -119,6 +119,7 @@ async function createVideoGame(nombre, descripcion, plataformas, imagen, lanzami
 async function videoGamesToBD(res) {
 
         for (const video of videoGames) {
+            
             const newVideo = await createVideoGame(
                 video.nombre,
                 video.descripcion,

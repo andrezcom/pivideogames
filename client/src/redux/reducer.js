@@ -1,6 +1,8 @@
 const initialState = {
     videoGames: [],
-    allvideoGames: []
+    allvideoGames: [],
+    videoGamesFiltrados: [],
+    generos: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -23,6 +25,37 @@ const rootReducer = (state = initialState, action) => {
                 };
             }
 
+            // case "ORDERED_RATING":
+            //     {
+            //         const sortedvideoGames = [...state.allvideoGames].sort((a, b) => {
+            //             if (action.payload) {
+            //                 return a.rating.toString().localeCompare(b.rating.toString());
+            //             } else {
+            //                 return b.rating.toString().localeCompare(a.rating.toString());
+            //             }
+            //         });
+            //         return {
+            //             ...state,
+            //             allvideoGames: sortedvideoGames
+            //         };
+            //     }
+
+            
+            case "ORDERED_RATING":
+                {
+                    const sortedvideoGames = [...state.allvideoGames].sort((a, b) => {
+                        if (action.payload) {
+                            return b.rating - a.rating; // descending order
+                        } else {
+                            return a.rating - b.rating; // ascending order
+                        }
+                    });
+                    return {
+                        ...state,
+                        allvideoGames: sortedvideoGames
+                    };
+                }
+
             case "FILTER_GENRE":
                 if (action.payload === "All") {
                   return {
@@ -37,12 +70,18 @@ const rootReducer = (state = initialState, action) => {
                     ),
                   };
                 }
-              
+            case "FILTER_RATING":
+             return {
+				...state,
+				allvideoGames: state.allvideoGames.filter(
+					(game) => game.rating >= action.payload
+				),
+			}; 
 
-            // case "CREATE_VIDEO_GAME":
+            case "CREATE_VIDEO_GAME":
             // No realizas cambios en el estado directamente en el reducer.
             // Realiza las solicitudes y actualizaciones en las acciones y efectos.
-            // return state;
+            return state;
 
         default:
             return {

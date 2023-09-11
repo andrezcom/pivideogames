@@ -28,6 +28,7 @@ async function loadGames() {
             }
             for (let i = 0; i < gameInfo.genres.length; i++) {
                 genres.push(gameInfo.genres[i].name);
+                console.log(genres);
             }
             videoGames.push({
                 id: gameInfo.id,
@@ -52,9 +53,9 @@ async function loadGames() {
 
         for (const gameInfo of videoGamesBD) {
             const genres = [];
-
             for (let i = 0; i < gameInfo.genres.length; i++) {
                 genres.push(gameInfo.genres[i].nombre);
+                console.log(genres);
             }
             videoGames.push({
                 id: gameInfo.id,

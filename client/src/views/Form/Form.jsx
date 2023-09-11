@@ -1,37 +1,46 @@
-import React from "react";
+import {useEffect, useState} from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { createVideoGame } from "../../redux/actions";
 
 const Formulario = () => {
+    const generos = useSelector(state => state.generos)
 
-    const [state, setState] = React.useState({
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        dispatch(getGeneros())
+        },[])
+
+    const [state, setState] = useState({
         nombre: '',
         descripcion: '',
-        plataformas: '',
+        plataformas: [],
         imagen: '',
         lanzamiento: '',
-        rating: '',
+        rating: 0.0,
         genres: []
     });
 
-    const [errors, setErrors] = React.useState({
+    const [errors, setErrors] = useState({
         nombre: '',
         descripcion: '',
-        plataformas: '',
+        plataformas: [],
         imagen: '',
         lanzamiento: '',
-        rating: '',
+        rating: 0.0,
         genres: []
     });
 
     const validar = (data) => {
         let errors = {};
 
-        if (data.nombre.length < 1) {
+        if (data.nombre === '') {
             console.log(data);
-            errors.nombre = "Nombre demasiado corto";
+            errors.nombre = "Nombre requerido";
         }
 
         if (data.descripcion.length < 10) {
-            errors.descripcion = "dificultad demasiado corta";
+            errors.descripcion = "descripcion demasiado corta";
         }
 
         if (data.plataformas === 0) {
@@ -92,12 +101,11 @@ const Formulario = () => {
                 <label htmlFor="">descripcion:
                 </label>
                 <input type="text" name="descripcion"
-                    onChange={handleChange}/>
-                    {
-                    errors.descripcion ? <p>{
-                        errors.descripcion
-                    }</p> : null
-                } 
+                    onChange={handleChange}/> {
+                errors.descripcion ? <p>{
+                    errors.descripcion
+                }</p> : null
+            }
 
                 <label>plataformas:
                 </label>
