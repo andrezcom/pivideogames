@@ -5,7 +5,7 @@ const videoGames = [
     {
         nombre: 'Game 1',
         descripcion: 'Description 1',
-        plataformas: 'Platform 1',
+        plataformas: ["Platform 1", "Platform 2", "Platform 3"],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 1',
         rating: 1,
@@ -14,7 +14,7 @@ const videoGames = [
     {
         nombre: 'Game 2',
         descripcion: 'Description 2',
-        plataformas: 'Platform 2',
+        plataformas: ["Platform 1", "Platform 2", "Platform 3"],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 2',
         rating: 1.5,
@@ -23,7 +23,7 @@ const videoGames = [
     {
         nombre: 'Game 3',
         descripcion: 'Description 3',
-        plataformas: 'Platform 3',
+        plataformas: ["Platform 1", "Platform 2", "Platform 3"],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 3',
         rating: 2,
@@ -32,7 +32,7 @@ const videoGames = [
     {
         nombre: 'Game 4',
         descripcion: 'Description 4',
-        plataformas: 'Platform 4',
+        plataformas: ["Platform 1", "Platform 2", "Platform 3",'Platform 4'],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 4',
         rating: 2.5,
@@ -40,7 +40,7 @@ const videoGames = [
     }, {
         nombre: 'Game 5',
         descripcion: 'Description 5',
-        plataformas: 'Platform 5',
+        plataformas: ["Platform 2","Platform 3", "Platform 5"],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 5',
         rating: 5,
@@ -48,7 +48,7 @@ const videoGames = [
     }, {
         nombre: 'Game 6',
         descripcion: 'Description 6',
-        plataformas: 'Platform 6',
+        plataformas: ["Platform 6","Platform 3", "Platform 5"],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 6',
         rating: 3,
@@ -56,7 +56,7 @@ const videoGames = [
     }, {
         nombre: 'Game 7',
         descripcion: 'Description 7',
-        plataformas: 'Platform 7',
+        plataformas: ["Platform 6","Platform 3", "Platform 5"],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 7',
         rating: 3.5,
@@ -64,7 +64,7 @@ const videoGames = [
     }, {
         nombre: 'Game 8',
         descripcion: 'Description 8',
-        plataformas: 'Platform 8',
+        plataformas: ["Platform 6","Platform 3", "Platform 5"],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 8',
         rating: 4,
@@ -72,7 +72,7 @@ const videoGames = [
     }, {
         nombre: 'Game 9',
         descripcion: 'Description 9',
-        plataformas: 'Platform 9',
+        plataformas: ["Platform 4","Platform 6", "Platform 8"],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 9',
         rating: 4.5,
@@ -80,7 +80,7 @@ const videoGames = [
     }, {
         nombre: 'Game 10',
         descripcion: 'Description 10',
-        plataformas: 'Platform 10',
+        plataformas: ["Platform 7","Platform 5", "Platform 3"],
         imagen: 'https://assets.xboxservices.com/assets/c0/c0/c0c0ce2f-6d78-4414-99e6-63c51277ae8b.jpg?n=Xbox-360-Games_Sharing-Image_200x200.jpg',
         lanzamiento: 'Release 10',
         rating: 5,

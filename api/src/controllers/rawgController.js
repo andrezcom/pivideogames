@@ -1,7 +1,7 @@
 const axios = require('axios');
 const {Genre} = require('../db');
 
-const API_KEY = '340023d79eaf4537a530456e098c90bc';
+const API_KEY = 'f04b5929b4f34da5a2e297a9d2768c1e';
 const RAWG_API_URL = 'https://api.rawg.io/api/genres';
 const pageSize = 40;
 

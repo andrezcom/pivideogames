@@ -9,18 +9,17 @@ import FilterGenres from "../Filters/Genre/Genre"
 import FilterRating from "../Filters/FilterRating/FilterRating"
 import SearchBar from "../components/searchBar/SearchBar"
 
+
 import Formulario from "../views/Form/Form"
+import { FilterOrigen } from "../Filters/FilterOrigen/FilterOrigen"
 
 export default function Home() {
     const dispatch = useDispatch()
     const allvideoGames = useSelector(state => state.allvideoGames)
     useEffect(() => {
         axios.get('http://localhost:3001/games').then((response) => {
-            console.log(response.data);
             dispatch(getAll(response.data));
-        }).catch((error) => {
-            console.error("Error fetching data:", error);
-        });
+        }).catch((error) => {});
 
     }, [dispatch]);
     return (
@@ -29,12 +28,13 @@ export default function Home() {
             <Ordered/>
             <OrderedRating/>
             <FilterRating/>
+            <FilterOrigen/>
             <p>-----</p>
             <FilterGenres/>
             <p>-----</p>
             <SearchBar/>
             <p>-----</p>
-            {/* <Formulario/> */}
+  
             <CardList videoGames={allvideoGames}/>
         </div>
     )

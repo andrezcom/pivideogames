@@ -1,7 +1,7 @@
 const axios = require('axios');
 const {Videogame, Genre} = require('../db');
 
-const API_KEY = '340023d79eaf4537a530456e098c90bc';
+const API_KEY = 'f04b5929b4f34da5a2e297a9d2768c1e';
 const RAWG_API_URL = 'https://api.rawg.io/api/games';
 
 
@@ -55,14 +55,15 @@ async function loadGames() {
             const genres = [];
             for (let i = 0; i < gameInfo.genres.length; i++) {
                 genres.push(gameInfo.genres[i].nombre);
-                console.log(genres);
             }
+
             videoGames.push({
                 id: gameInfo.id,
                 nombre: gameInfo.nombre,
                 descripcion: '',
+                plataformas: gameInfo.plataformas,
                 imagen: gameInfo.imagen,
-                lanzamiento: gameInfo.released,
+                lanzamiento: gameInfo.lanzamiento,
                 rating: gameInfo.rating,
                 genres: genres
             })

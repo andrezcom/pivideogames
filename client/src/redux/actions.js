@@ -5,6 +5,7 @@ export const ORDERED = "ORDERED";
 export const ORDERED_RATING = "ORDERED_RATING";
 export const FILTER_GENRE = "FILTER_GENRE";
 export const FILTER_RATING = "FILTER_RATING";
+export const FILTER_ORIGIN = "FILTER_ORIGIN";
 export const CREATE_VIDEO_GAME = "CREATE_VIDEO_GAME";
 export const SEARCH_VIDEO = "SEARCH_VIDEO";
 
@@ -38,7 +39,10 @@ export const searchVideo = (nombre) => {
   return {type: SEARCH_VIDEO, payload: nombre.toUpperCase()};
 };
 
-
+export const origin = (origin) => {
+    return {type: FILTER_ORIGIN, payload: origin};
+  };
+  
 export const createVideoGame = (videoGame) => {
     return(dispatch) => {
         axios.post("http://localhost:3001/games", videoGame).then((response) => {

@@ -60,18 +60,21 @@ const rootReducer = (state = initialState, action) => {
             if (action.payload === "All") {
                 return {
                     ...state,
-                    allvideoGames: [...state.videoGames]
+                    allvideoGames: [...state.videoGames],
+                    videoGamesFiltrados: [...state.videoGames]
+
                 };
             } else {
                 return {
                     ...state,
-                    allvideoGames: state.videoGames.filter((videoGame) => videoGame.genres.includes(action.payload))
+                    allvideoGames: state.videoGames.filter((videoGame) => videoGame.genres.includes(action.payload)),
+                    videoGamesFiltrados: state.videoGames.filter((videoGame) => videoGame.genres.includes(action.payload))
                 };
             }
         case "FILTER_RATING":
             return {
                 ...state,
-                allvideoGames: state.allvideoGames.filter((game) => game.rating >= action.payload)
+                allvideoGames: state.videoGamesFiltrados.filter((game) => game.rating >= action.payload)
             };
 
         case "SEARCH_VIDEO":
@@ -80,7 +83,35 @@ const rootReducer = (state = initialState, action) => {
                 allvideoGames: state.videoGames.filter((videoGame) => videoGame.nombre.toUpperCase().includes(action.payload))
             }
 
+        case "FILTER_ORIGIN":
+            function isUUID(uuid) {
+                let regex = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/g;
+                return regex.test(uuid);
+            }
 
+            if (action.payload === "All") {
+                return {
+                    ...state,
+                    allvideoGames: [...state.videoGames],
+                    videoGamesFiltrados: [...state.videoGames]
+
+                };
+            } 
+            if(action.payload === "BD"){
+
+                return {
+                    ...state,
+                    allvideoGames: state.videoGames.filter((videoGame) => isUUID(videoGame.id)),
+                };
+                
+            }
+            if(action.payload === "API"){
+
+                return {
+                    ...state,
+                    allvideoGames: state.videoGames.filter((videoGame) => !isUUID(videoGame.id)),
+                };
+            }
             // case "CREATE_VIDEO_GAME":
             // // No realizas cambios en el estado directamente en el reducer.
             // // Realiza las solicitudes y actualizaciones en las acciones y efectos.

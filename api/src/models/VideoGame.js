@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     plataformas: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING), // Tipo de datos ARRAY de cadenas
       allowNull: false,
     },
     imagen: {

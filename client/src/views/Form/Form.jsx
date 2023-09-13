@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createVideoGame } from "../../redux/actions";
 
 const Formulario = () => {
-    const generos = useSelector(state => state.generos)
+    // const generos = useSelector(state => state.generos)
 
     const dispatch = useDispatch()
 
-    useEffect(()=>{
-        dispatch(getGeneros())
-        },[])
+    // useEffect(()=>{
+    //     dispatch(getGeneros())
+    //     },[])
 
     const [state, setState] = useState({
         nombre: '',
@@ -43,16 +43,23 @@ const Formulario = () => {
             errors.descripcion = "descripcion demasiado corta";
         }
 
-        if (data.plataformas === 0) {
-            errors.plataformas = "dificultad demasiado corta";
+        if (data.plataformas.length === 0) {
+            errors.plataformas = "minimo 1 plataforma";
+        }
+        if (data.imagen.length === '') {
+            errors.plataformas = "escribe la url de la imagen";
         }
 
-        if (data.lanzamiento === "Ninguna") {
-            errors.lanzamiento = "dificultad demasiado corta";
+        if (data.lanzamiento === "") {
+            errors.lanzamiento = "escribe un dato de lanzamiento";
         }
 
-        if (data.rating.length < 1) {
+        if (data.rating < 0 || data.rating > 5) {
             errors.rating = "dificultad demasiado corta";
+        }
+
+        if (data.genres.length === 0) {
+            errors.genres = "minimo 1 plataforma";
         }
         return errors;
     };
@@ -145,7 +152,7 @@ const Formulario = () => {
             }
 
                 {/* <button onClick={handlerAsociar}>Asociar Paises</button> */}
-                <button type="submit">Crear Actividad</button>
+                <button type="submit">Crear Video</button>
             </form>
         </div>
     );
