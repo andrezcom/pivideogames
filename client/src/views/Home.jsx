@@ -1,4 +1,4 @@
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 import axios from "axios"
 import {useDispatch, useSelector} from "react-redux"
 import {getAll} from '../redux/actions'
@@ -8,10 +8,11 @@ import OrderedRating from "../Filters/OrderedRating/OrderedRating"
 import FilterGenres from "../Filters/Genre/Genre"
 import FilterRating from "../Filters/FilterRating/FilterRating"
 import SearchBar from "../components/searchBar/SearchBar"
+import Paginado from "../components/Paginado/Paginado"
 
 
 import Formulario from "../views/Form/Form"
-import { FilterOrigen } from "../Filters/FilterOrigen/FilterOrigen"
+import {FilterOrigen} from "../Filters/FilterOrigen/FilterOrigen"
 
 export default function Home() {
     const dispatch = useDispatch()
@@ -22,6 +23,17 @@ export default function Home() {
         }).catch((error) => {});
 
     }, [dispatch]);
+    const count = 20
+    const [currentPage, setCurrenPage] = useState(1);
+    const totalPage = Math.ceil(allvideoGames.length / count);
+    const startPage = ((currentPage - 1) * count);
+    const endPage = (startPage + count);
+
+    function pageHandler(pageNumber) {
+        setCurrenPage(pageNumber)
+    }
+
+    let cardsToPrint = allvideoGames.slice(startPage, endPage);
     return (
         <div>
             <p>-----</p>
@@ -34,8 +46,11 @@ export default function Home() {
             <p>-----</p>
             <SearchBar/>
             <p>-----</p>
-  
-            <CardList videoGames={allvideoGames}/>
+            <Paginado total={totalPage}
+                page={pageHandler}/>
+
+
+            <CardList videoGames={cardsToPrint}/>
         </div>
     )
 }

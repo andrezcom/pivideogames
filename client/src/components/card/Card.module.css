@@ -1,25 +1,23 @@
-/* Card.module.css */
 
-/* Container styles */
 .contenedor {
   border: 1px solid #ccc;
   padding: 20px;
   margin: 10px;
   display: inline-block;
-  width: 200px; /* Ancho fijo del contenedor */
-  height: 350px; /* Altura fija del contenedor */
+  width: 200px; 
+  height: 350px; 
   text-align: center;
-  overflow: hidden; /* Para recortar el contenido que pueda desbordar */
+  overflow: hidden; 
 }
 
-/* Individual element styles */
+
 .contenedor p {
   margin: 5px 0;
 }
 
 .contenedor img {
   
-  height: 100px; /* Hace que la imagen se ajuste a la altura del contenedor */
-  width: auto; /* Evita que la imagen se estire */
+  height: 100px;
+  width: auto; 
   object-fit: cover;
 }

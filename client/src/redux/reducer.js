@@ -24,30 +24,13 @@ const rootReducer = (state = initialState, action) => {
                     allvideoGames: sortedvideoGames
                 };
             }
-
-            // case "ORDERED_RATING":
-            //     {
-            //         const sortedvideoGames = [...state.allvideoGames].sort((a, b) => {
-            //             if (action.payload) {
-            //                 return a.rating.toString().localeCompare(b.rating.toString());
-            //             } else {
-            //                 return b.rating.toString().localeCompare(a.rating.toString());
-            //             }
-            //         });
-            //         return {
-            //             ...state,
-            //             allvideoGames: sortedvideoGames
-            //         };
-            //     }
-
-
         case "ORDERED_RATING":
             {
                 const sortedvideoGames = [...state.allvideoGames].sort((a, b) => {
                     if (action.payload) {
-                        return b.rating - a.rating; // descending order
+                        return b.rating - a.rating;
                     } else {
-                        return a.rating - b.rating; // ascending order
+                        return a.rating - b.rating;
                     }
                 });
                 return {
@@ -96,26 +79,22 @@ const rootReducer = (state = initialState, action) => {
                     videoGamesFiltrados: [...state.videoGames]
 
                 };
-            } 
-            if(action.payload === "BD"){
+            }
+            if (action.payload === "BD") {
 
                 return {
                     ...state,
-                    allvideoGames: state.videoGames.filter((videoGame) => isUUID(videoGame.id)),
+                    allvideoGames: state.videoGames.filter((videoGame) => isUUID(videoGame.id))
                 };
-                
+
             }
-            if(action.payload === "API"){
+            if (action.payload === "API") {
 
                 return {
                     ...state,
-                    allvideoGames: state.videoGames.filter((videoGame) => !isUUID(videoGame.id)),
+                    allvideoGames: state.videoGames.filter((videoGame) => ! isUUID(videoGame.id))
                 };
             }
-            // case "CREATE_VIDEO_GAME":
-            // // No realizas cambios en el estado directamente en el reducer.
-            // // Realiza las solicitudes y actualizaciones en las acciones y efectos.
-            // return state;
 
         default:
             return {

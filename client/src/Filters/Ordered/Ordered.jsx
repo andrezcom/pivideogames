@@ -7,9 +7,9 @@ const Ordered = () => {
   const dispatch = useDispatch();
 
   const handleButton = () => {
-    const newValue = !boolean; // Invertir el valor actual
-    setBoolean(newValue); // Actualizar el estado
-    dispatch(ordered(newValue)); // Enviar el nuevo valor al estado global
+    const newValue = !boolean;
+    setBoolean(newValue); 
+    dispatch(ordered(newValue));
   };
 
   return (
